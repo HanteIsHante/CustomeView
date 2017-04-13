@@ -8,4 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Progress_Style" parent="AlertDialog.AppCompat">
+        <item name="android:color">@color/colorAccent</item>
+    </style>
 </resources>

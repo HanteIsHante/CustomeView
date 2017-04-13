@@ -1,11 +1,10 @@
 package com.example.service.customview;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.EditText;
+
+import com.example.service.customview.customview.ShowDialogProgress;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edit_text = (EditText)findViewById(R.id.edit_text);
+
+        ShowDialogProgress.showDialog(MainActivity.this);
+       /* edit_text = (EditText)findViewById(R.id.edit_text);
 
         edit_text.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return false;
             }
-        });
+        });*/
     }
 
 
