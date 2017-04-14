@@ -22,6 +22,7 @@ import com.example.service.customview.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 // https://github.com/EoniJJ/PasswordView/tree/master/app
 public class PasswordView extends View {
 
@@ -101,7 +102,7 @@ public class PasswordView extends View {
             cursorFlashTime = typedArray.getInteger(R.styleable.PasswordView_cursorFlashTime, 500);
             borderColor = typedArray.getColor(R.styleable.PasswordView_borderColor, Color.BLACK);
             cursorColor = typedArray.getColor(R.styleable.PasswordView_cursorColor, Color.GRAY);
-            isCursorEnable = typedArray.getBoolean(R.styleable.PasswordView_isCursorEnable, false);
+            isCursorEnable = typedArray.getBoolean(R.styleable.PasswordView_isCursorEnable, true);
             //如果为边框样式，则padding 默认置为0
             if (mode == Mode.UNDERLINE) {
                 passwordPadding = typedArray.getDimensionPixelSize(R.styleable.PasswordView_passwordPadding, dp2px(15));
@@ -173,8 +174,9 @@ public class PasswordView extends View {
         drawCursor(canvas, paint);
         //绘制密码文本
         drawCipherText(canvas, paint);
-    }
 
+
+    }
     class MyKeyListener implements OnKeyListener {
 
         @Override
@@ -320,7 +322,7 @@ public class PasswordView extends View {
      */
     private void drawCursor(Canvas canvas, Paint paint) {
         //画笔初始化
-        paint.setColor(cursorColor);
+        paint.setColor(borderColor);
         paint.setStrokeWidth(cursorWidth);
         paint.setStyle(Paint.Style.FILL);
         //光标未显示 && 开启光标 && 输入位数未满 && 获得焦点
@@ -350,6 +352,7 @@ public class PasswordView extends View {
             rect = new Rect(startX, startY, stopX, stopY);
             canvas.drawRect(rect, paint);
         }
+
     }
 
     @Override
